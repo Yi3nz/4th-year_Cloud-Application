@@ -1,20 +1,18 @@
 class PatientsController < ApplicationController
 
-  #The user needed to be authenticated on every action except...
-  http_basic_authenticate_with name: "doc", password: "secret", except:[:index, :show]
-
+  #Activated find_patient for selected methods
   before_action :find_patient, only: [:show, :edit, :update, :destroy]
+
   def index
     if user_signed_in?
-      #@patients = Patient.all.order("created_at DESC")
       @patients = Patient.where(:user_id => current_user.id).order("created_at DESC")
     end
   end
 
-  def show # Rails will pass all instance variables to the view.
+  def show
   end
 
-  def new #@patient = Patient.new
+  def new
     @patient = current_user.patients.build
   end
 
@@ -47,9 +45,8 @@ class PatientsController < ApplicationController
 
   private
     def patient_params
-      params.require(:patient).permit(:name, :date_of_birth,
-                                      :address, :phone_no, :infection,
-                                      :injury, :special_observation)
+      params.require(:patient).permit(:name, :date_of_birth, :address, :phone_no,
+                                      :infection, :injury, :special_observation)
     end
 
     def find_patient

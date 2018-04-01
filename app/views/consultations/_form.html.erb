@@ -1,17 +1,9 @@
-<%= form_for([@patient, @patient.consultations.build]) do |f| %>
-  <p>
-    <%= f.label :cat %><br>
-    <%= f.text_field :cat %>
-  </p>
-  <p>
-    <%= f.label :x_ray %><br>
-    <%= f.text_field :x_ray %>
-  </p>
-  <p>
-    <%= f.label :other %><br>
-    <%= f.text_area :other %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
+<%= simple_form_for([@patient, @patient.consultations.build]) do |f| %>
+
+  <!--Content of the form-->
+  <%= f.input :cat, label: "CAT" %>
+  <%= f.input :x_ray, label: "X-RAY" %>
+  <%= f.input :other, label: "Others" %>
+  <%= f.button :submit %>
+
 <% end %>

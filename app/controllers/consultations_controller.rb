@@ -1,6 +1,4 @@
 class ConsultationsController < ApplicationController
-  #The user needed to be authenticated on every action except...
-  http_basic_authenticate_with name: "doc", password: "secret", only: :destroy
 
   def create
     @patient = Patient.find(params[:patient_id])

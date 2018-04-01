@@ -16,6 +16,7 @@ gem 'turbolinks', '~> 5'
 gem 'devise', '~> 4.4', '>= 4.4.3'
 gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
+gem "font-awesome-rails"
 gem 'simple_form', '~> 3.5', '>= 3.5.1'
 gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', require: 'bcrypt'
 

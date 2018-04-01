@@ -1,31 +1,39 @@
 <% if user_signed_in? %>
-  <h1>Patient List</h1>
+  <div class="col-md-10 col-md-offset-1">
+    <!--The content of the patient list-->
+    <h1>Patient List</h1>
 
-  <table>
-   <tr>
-     <th>Name</th>
-     <th>Date of birth</th>
-     <th colspan="3"></th>
-   </tr>
-
-   <% @patients.each do |patient| %>
+    <table class="table table-stripped table-bordered table-hover">
      <tr>
-       <td><%= link_to patient.name, patient %></td>
-       <td><%= patient.date_of_birth %></td>
-       <td><%= link_to 'Show', patient_path(patient) %></td>
-       <!--<td><%= link_to 'Edit', edit_patient_path(patient) %></td>-->
-       <td><%= link_to edit_patient_path(patient), method: :patch do %></td>
-         <i class="icon-edit-sign"></i>
-       <% end %>
-
-       <td><%= link_to patient_path(patient), method: :delete,
-                                  data: {confirm: 'Are you sure?'} do %></td>
-         <i class="fa fa-lg fa-trash-o"></i>
-       <% end %>
+       <th>Name</th>
+       <th>Date of birth</th>
+       <th>Address</th>
+       <th>Phone</th>
+       <th>Infection</th>
+       <th>Injury</th>
+       <th>Consultation</th>
+       <th colspan="8"></th>
      </tr>
-  <% end %>
-  </table>
+
+     <% @patients.each do |patient| %>
+       <tr>
+         <td><%= link_to patient.name, patient %></td>
+         <td><%= patient.date_of_birth %></td>
+         <td><%= patient.address %></td>
+         <td><%= patient.phone_no %></td>
+         <td><%= patient.infection %></td>
+         <td><%= patient.injury %></td>
+         <td><%= patient.special_observation %></td>
+         <td><%= link_to 'Show', patient_path(patient) %></td>
+         <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
+         <td><%= link_to 'Destroy', patient_path(patient), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+       </tr>
+     <% end %>
+    </table>
+
+  </div>
 
 <% else %>
   <%= render 'layouts/welcome_page' %>
+
 <% end %>

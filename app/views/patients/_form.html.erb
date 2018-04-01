@@ -1,12 +1,9 @@
-<%= form_for @patient do |f| %>
+<%= simple_form_for @patient do |f| %>
 
   <!--Error while save without name-->
   <% if @patient.errors.any? %>
     <div id="error_explanation">
-      <h2>
-        <%= pluralize(@patient.errors.count, "error") %> prohibited
-                                      this patient from being saved:
-      </h2>
+      <h2><%= pluralize(@patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
       <ul>
         <% @patient.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
@@ -15,19 +12,13 @@
     </div>
   <% end %>
 
-
-  <p>
-    <%= f.label :name %><br> <!--Just text-->
-    <%= f.text_field :name %> <!---->
-  </p>
-
-  <p>
-    <%= f.label :date_of_birth %><br>
-    <%= f.date_field :date_of_birth %>
-  </p>
-
-  <p>
-    <%= f.submit %>
-  </p>
+  <!--Content of the form-->
+  <%= f.input :name, label: "Name", placeholder: "Enter full name" %>
+  <%= f.input :date_of_birth, label: "Date of birth" %>
+  <%= f.input :address, label: "Address" %>
+  <%= f.input :phone_no, label: "Contact number" %>
+  <%= f.input :infection, label: "Infection" %>
+  <%= f.input :injury, label: "Injury" %>
+  <%= f.button :submit %>
 
 <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180401140607) do
+ActiveRecord::Schema.define(version: 20180401145145) do
 
   create_table "consultations", force: :cascade do |t|
     t.string "cat"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20180401140607) do
     t.string "special_observation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|

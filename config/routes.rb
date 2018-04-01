@@ -5,5 +5,6 @@ Rails.application.routes.draw do
     resources :consultations
   end
 
-  root 'welcome#index'
+  root 'patients#index'
+  #root 'welcome#index'
 end

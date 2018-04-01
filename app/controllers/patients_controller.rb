@@ -5,18 +5,21 @@ class PatientsController < ApplicationController
 
   before_action :find_patient, only: [:show, :edit, :update, :destroy]
   def index
-    @patients = Patient.all.order("created_at DESC")
+    if user_signed_in?
+      #@patients = Patient.all.order("created_at DESC")
+      @patients = Patient.where(:user_id => current_user.id).order("created_at DESC")
+    end
   end
 
   def show # Rails will pass all instance variables to the view.
   end
 
-  def new # /patients/new
-    @patient = Patient.new
+  def new #@patient = Patient.new
+    @patient = current_user.patients.build
   end
 
   def create
-    @patient = Patient.new(patient_params) #Save the data from the form to the table model
+    @patient = current_user.patients.build(patient_params) #Save the data from the form to the table model
 
     if @patient.save
       redirect_to @patient #Redirect the user to show the action
@@ -25,7 +28,7 @@ class PatientsController < ApplicationController
       render 'new'
     end
   end
-  
+
   def edit
   end
 

@@ -1,0 +1,48 @@
+<p>
+ <strong>Name:</strong>
+ <%= @patient.name %>
+</p>
+
+<p>
+ <strong>Date of birth:</strong>
+ <%= @patient.date_of_birth %>
+</p>
+
+<p>
+ <strong>Address:</strong>
+ <%= @patient.address %>
+</p>
+
+<p>
+ <strong>Phone Number:</strong>
+ <%= @patient.phone_no %>
+</p>
+
+<p>
+ <strong>Type of infection:</strong>
+ <%= @patient.infection %>
+</p>
+
+<p>
+ <strong>Type of injury:</strong>
+ <%= @patient.injury %>
+</p>
+
+<p>
+ <strong>Special observations:</strong>
+ <%= @patient.special_observation %>
+</p>
+
+<!--Show consultation-->
+<h2>Consultation:</h2>
+<% @patient.consultations.each do |consultation| %>
+  <%= render @patient.consultations %>
+<% end %>
+
+<!--Add consultation request-->
+<h2>Add a consultation:</h2>
+<%= render 'consultations/form' %>
+
+
+<%= link_to 'Edit', edit_patient_path(@patient) %>
+<%= link_to 'Back', patients_path %>

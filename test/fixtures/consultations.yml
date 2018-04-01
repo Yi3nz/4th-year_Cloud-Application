@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cat: MyString
+  x_ray: MyString
+  other: MyString
+  patient: one
+
+two:
+  cat: MyString
+  x_ray: MyString
+  other: MyString
+  patient: two

@@ -1,0 +1,17 @@
+<%= form_for([@patient, @patient.consultations.build]) do |f| %>
+  <p>
+    <%= f.label :cat %><br>
+    <%= f.text_field :cat %>
+  </p>
+  <p>
+    <%= f.label :x_ray %><br>
+    <%= f.text_field :x_ray %>
+  </p>
+  <p>
+    <%= f.label :other %><br>
+    <%= f.text_area :other %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

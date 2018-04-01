@@ -1,0 +1,20 @@
+<p>
+  <strong>Computerized Axial Tomography:</strong>
+  <%= consultation.cat %>
+</p>
+
+<p>
+  <strong>X-ray:</strong>
+  <%= consultation.x_ray %>
+</p>
+
+<p>
+  <strong>Others:</strong>
+  <%= consultation.other %>
+</p>
+
+<p>
+ <%= link_to 'Destroy Consultation', [consultation.patient, consultation],
+ method: :delete,
+ data: { confirm: 'Are you sure?' } %>
+</p>

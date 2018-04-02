@@ -9,6 +9,22 @@ class PatientsController < ApplicationController
     end
   end
 
+  ####################################
+  def recent
+    @patients = Patient.recent.order("created_at DESC")
+    render action: :index
+  end
+
+  def dangerous
+    @patients = Patient.dangerous.order("created_at DESC")
+    render action: :index
+  end
+
+  def well
+    @patients = Patient.well.order("created_at DESC")
+    render action: :index
+  end
+
   def show
   end
 

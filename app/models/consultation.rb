@@ -1,3 +1,4 @@
 class Consultation < ActiveRecord::Base
-  belongs_to :patient
+  #Counter cache reference https://www.youtube.com/watch?v=e3eXuvBQums
+  belongs_to :patient, counter_cache: true
 end

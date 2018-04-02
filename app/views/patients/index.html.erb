@@ -1,4 +1,10 @@
 <% if user_signed_in? %>
+  <div class="col-md-2 col-md-offset-1">
+    <p>hey</p>
+    <%= link_to "Latest", recent_patients_path, class: "link" %>
+    <%= link_to "Dangerous", dangerous_patients_path, class: "link" %>
+    <%= link_to "Well", well_patients_path, class: "link" %>
+  </div>
   <div class="col-md-10 col-md-offset-1">
     <!--The content of the patient list-->
     <h1>Patient List</h1>
@@ -23,7 +29,7 @@
          <td><%= patient.phone_no %></td>
          <td><%= patient.infection %></td>
          <td><%= patient.injury %></td>
-         <td><%= patient.special_observation %></td>
+         <td><%= patient.consultations_count %></td>
          <td><%= link_to 'Show', patient_path(patient) %></td>
          <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
          <td><%= link_to 'Destroy', patient_path(patient), method: :delete, data: {confirm: 'Are you sure?'} %></td>

@@ -1,0 +1,38 @@
+<!--Content of the individual patient record-->
+<table class="table table-stripped table-hover">
+
+  <tr>
+    <td>Name</td>
+    <td><%= @patient.name %></td>
+  </tr>
+  <tr>
+    <td>Date of birth</td>
+    <td><%= @patient.date_of_birth %></td>
+  </tr>
+  <tr>
+    <td>Address</td>
+    <td><%= @patient.address %></td
+    </tr>
+  <tr>
+    <td>Phone</td>
+    <td><%= @patient.phone_no %></td>
+  </tr>
+  <tr>
+    <td>Infection</td>
+    <td><%= @patient.infection %></td>
+  </tr>
+  <tr>
+    <td>Injury</td>
+    <td><%= @patient.injury %></td>
+  </tr>
+  <tr>
+    <td>Consultation</td>
+    <td>
+      <% @patient.consultations.each do |consultation| %>
+        <%= render @patient.consultations %>
+      <% end %>
+    </td>
+  </tr>
+
+  <tr colspan="2"></tr>
+</table>

@@ -6,12 +6,12 @@ Rails.application.routes.draw do
 
   #One > many relationship
   resources :patients do
+    resources :consultations
     collection do
       get :recent
       get :dangerous
       get :well
     end
-    resources :consultations
   end
 
   root 'patients#index'

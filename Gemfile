@@ -12,13 +12,16 @@ gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
-gem 'turbolinks', '~> 5'
+#gem 'turbolinks', '~> 5'
 gem 'devise', '~> 4.4', '>= 4.4.3'
 gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem "font-awesome-rails"
 gem 'simple_form', '~> 3.5', '>= 3.5.1'
 gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', require: 'bcrypt'
+gem 'jquery-datatables-rails', '~> 3.4.0'
+gem 'jquery-rails'
+gem 'will_paginate'
 
 group :production do
   gem 'pg'
@@ -37,5 +40,8 @@ group :development do
   gem 'web-console', '>= 3.3.0'
 end
 
+gem 'rails-assets-jquery', source: 'https://rails-assets.org'
+gem 'rails-assets-datatables', source: 'https://rails-assets.org'
+gem 'kaminari'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

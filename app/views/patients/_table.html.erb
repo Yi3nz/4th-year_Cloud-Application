@@ -29,7 +29,20 @@
     <td>Consultation</td>
     <td>
       <% @patient.consultations.each do |consultation| %>
-        <%= render @patient.consultations %>
+        <!-- <%= render @patient.consultations %> -->
+        <p>
+          <strong>CAT:</strong>
+          <%= consultation.cat %>
+        </p>
+        <p>
+          <strong>X-ray:</strong>
+          <%= consultation.x_ray %>
+        </p>
+        <p>
+          <strong>Others:</strong>
+          <%= consultation.other %>
+        </p>
+        <br/>
       <% end %>
     </td>
   </tr>

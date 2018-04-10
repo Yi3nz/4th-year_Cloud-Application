@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   #Apply devise for users
   devise_for :users
 
+  resources :searches
   #One > many relationship
   resources :patients do
     resources :consultations

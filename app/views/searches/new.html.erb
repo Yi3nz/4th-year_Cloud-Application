@@ -1,0 +1,26 @@
+<!--Add bootstrap to the form-->
+<div class="col-md-6 col-md-offset-3">
+  <div class="panel panel-success">
+    <div class="panel-heading text-success text-center"><h1>Advanced Search:</h1></div>
+    <div class="panel-body">
+
+      <!--Content of the form-->
+      <!--Link to the partial code-->
+      <%= simple_form_for @search do |s| %>
+
+        <!--Content of the form-->
+        <%= s.input :keywords, label: "Keywords", placeholder: "Enter keywords" %>
+        <!-- <%= s.input :date_of_birth, label: "Date of birth" %> -->
+        <%= s.input :address, label: "Address" %>
+        <%= s.input :phone_no, label: "Contact number" %>
+        <%= s.input :infection, label: "Infection" %>
+        <%= s.input :injury, label: "Injury" %>
+        <%= s.button :submit %>
+
+      <% end %>
+
+      <%= link_to 'Back', patients_path %>
+
+    </div>
+  </div>
+</div>

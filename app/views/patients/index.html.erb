@@ -1,15 +1,18 @@
 <% if user_signed_in? %>
+
+
+<!--  -->
   <!-- The search bar -->
   <!-- Reference - https://www.youtube.com/watch?v=eUtUquKc2qQ -->
   <div class="col-md-7 col-md-offset-8">
-    <%= form_tag patients_path, :method => 'get' do %>
+    <%= form_tag patients_path, method: :get do %>
       <%= text_field_tag :search, params[:search]%>
-      <%= submit_tag "Search", placeholder: "Enter full name", class: "btn btn-primary btn-success" %>
+      <%= submit_tag "Search", name: nil, placeholder: "Enter name", class: "btn btn-primary btn-success" %>
     <% end %>
   </div>
 
   <!-- The filters -->
-  <div class="col-md-7 col-md-offset-9">
+  <div id="patients" class="col-md-7 col-md-offset-9">
   <!-- <div class="col-md-2 col-md-offset-1"> -->
     <%= link_to "Latest", recent_patients_path, class: "link" %>
     <%= link_to "Dangerous", dangerous_patients_path, class: "link" %>
@@ -54,6 +57,8 @@
     </table>
 
   </div>
+
+
 
 <% else %>
   <%= render 'layouts/welcome_page' %>

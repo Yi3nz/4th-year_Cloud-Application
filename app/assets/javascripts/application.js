@@ -12,20 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require datatables
-//= require dataTables/jquery.dataTables
 //= require bootstrap-sprockets
 //= require rails-ujs
 //= require_tree .
-
-
-//Reference https://www.youtube.com/watch?v=7BElkjyZGvo
-// $('.datatable').dataTable({
-//   "sPaginationType": "bootstrap"
-// });
-
-// $(document).on('turbolinks:load', function(){
-//   $("table[role='datatable']").each(function(){
-//     $(this).DataTable({});
-//   });
-// })

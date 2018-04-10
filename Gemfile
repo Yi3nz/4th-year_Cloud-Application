@@ -22,8 +22,6 @@ gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', require: 'bcry
 gem 'jquery-datatables-rails', '~> 3.4.0'
 gem 'jquery-rails'
 gem 'will_paginate'
-gem 'elasticsearch-model', github: 'elastic/elasticsearch-rails', branch: '5.x'
-gem 'elasticsearch-rails', github: 'elastic/elasticsearch-rails', branch: '5.x'
 
 # #
 # gem 'elasticsearch-rails'

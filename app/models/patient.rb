@@ -1,6 +1,3 @@
-require 'elasticsearch'
-require 'elasticsearch/model'
-
 class Patient < ActiveRecord::Base
 
   belongs_to :user
@@ -13,11 +10,6 @@ class Patient < ActiveRecord::Base
   scope :dangerous, ->{ where("consultations_count >= ?", 1) }
   scope :well,      ->{ where(consultations_count: 0) }
 
-  # #Elastic_Search reference https://www.youtube.com/watch?v=Pse-2ZkVaTs
-  include Elasticsearch::Model
-  include Elasticsearch::Model::Callbacks
-
-  searchkick word_middle: [:name, :date_of_birth]
 
   def self.search(search)
     if search

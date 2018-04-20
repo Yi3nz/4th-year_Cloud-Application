@@ -1,12 +1,13 @@
 class PatientsController < ApplicationController
 
+  decorates_assigned :patient, :patients
+
   #Activated find_patient for selected methods
   before_action :find_patient, only: [:show, :edit, :update, :destroy]
 
   def index
     if user_signed_in?
-      # @patients = Patient.where(:user_id => current_user.id).order("created_at DESC")
-     @patients = Patient.where(:user_id => current_user.id).
+    @patients = Patient.where(:user_id => current_user.id).
                   order("created_at DESC").search(params[:search])
     end
   end
@@ -36,7 +37,6 @@ class PatientsController < ApplicationController
 
   def create
     @patient = current_user.patients.build(patient_params) #Save the data from the form to the table model
-    @patient.hello
     if @patient.save
       redirect_to @patient #Redirect the user to show the action
     else

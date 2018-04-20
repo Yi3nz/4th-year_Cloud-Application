@@ -1,22 +1,21 @@
 class ConsultationObserver < ActiveRecord::Observer
-  observe :consultation, :patient
 
+  # Define the callbacks method to log specific messages
   def around_save(model)
-    puts "state around_save"
+    model.logger.info("state around_save")
     yield
-    puts "end around_save"
+    model.logger.info("end around_save")
   end
 
   def after_save(consultation)
-    Notifications.consultation("admin@do.com", "New c was posted", consultation).deliver
+    consultation.logger.info("New consultation successfully saved!")
   end
 
-  #sends an email when a Comment#save is finished.
   def after_create(consultation)
-    consultation.logger.info('New contact added!')
+    consultation.logger.info('New consultation created.')
   end
 
   def after_destroy(consultation)
-    consultation.logger.warn("Contact with an id of #{consultation.id} was destroyed!")
+    consultation.logger.warn("Consultation with an id of #{consultation.id} was deleted!")
   end
 end

@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   #One-to-many relationship patient > consultation
   resources :patients do
     resources :consultations
-    #For filtering defined in patient.rb
     #Reference https://www.youtube.com/watch?v=e3eXuvBQums&index=2&list=PLkBs-_aaZBzhzVSV-vHc-iHAfQFcqWUUx&t=314s
+    #For filtering defined in patient.rb
+    #Create routes patients/recent, patients/dangerous, patient/well
     collection do
       get :recent
       get :dangerous

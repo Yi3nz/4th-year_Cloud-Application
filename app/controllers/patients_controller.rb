@@ -6,28 +6,12 @@ class PatientsController < ApplicationController
   def index
     if user_signed_in?
       # @patients = Patient.where(:user_id => current_user.id).order("created_at DESC")
-     @patients = Patient.where(:user_id => current_user.id).order("created_at DESC").search(params[:search])
-
-     #@patients = Patient.search(params)
-     #Reference - Ruby on Rails - Railscasts #306 Elasticsearch Part 1
-      # if params[:query].present?
-      #   @patients = Patient.search(params[:query])
-      # else
-      #   @patients = Patient.all
-      # end
-
-      #NEW
-      # search = params[:query].present? ? params[:query] : nil
-      # @patients = if search
-      #   Patient.search(search)
-      # else
-      #   Patient.all
-      # end
-
+     @patients = Patient.where(:user_id => current_user.id).
+                  order("created_at DESC").search(params[:search])
     end
   end
 
-  ####################################
+  #The filter functions
   def recent
     @patients = Patient.recent.order("created_at DESC")
     render action: :index
@@ -52,7 +36,7 @@ class PatientsController < ApplicationController
 
   def create
     @patient = current_user.patients.build(patient_params) #Save the data from the form to the table model
-
+    @patient.hello
     if @patient.save
       redirect_to @patient #Redirect the user to show the action
     else

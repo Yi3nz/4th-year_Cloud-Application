@@ -29,7 +29,6 @@
     <td>Consultation</td>
     <td>
       <% @patient.consultations.each do |consultation| %>
-        <!-- <%= render @patient.consultations %> -->
         <p>
           <strong>CAT:</strong>
           <%= consultation.cat %>
@@ -41,6 +40,10 @@
         <p>
           <strong>Others:</strong>
           <%= consultation.other %>
+        </p>
+        <p>
+         <%= link_to 'Destroy Consultation', [consultation.patient, consultation], method: :delete,
+         data: { confirm: 'Are you sure?' } %>
         </p>
         <br/>
       <% end %>

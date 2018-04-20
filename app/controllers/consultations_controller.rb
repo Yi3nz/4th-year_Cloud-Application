@@ -3,6 +3,8 @@ class ConsultationsController < ApplicationController
   def create
     @patient = Patient.find(params[:patient_id])
     @consultation = @patient.consultations.create(consultation_params)
+
+    
     redirect_to patient_path(@patient)
   end
 
